@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datas>
+  <connexionInformations>
+    <login>malo</login>
+    <mail>malo.girard@gmail.com</mail>
+    <password>$2y$10$17f5PoseZbpdXWgmeDCWiuyygZkGShqWyTeXCnyR5fCJK0ctyWumG</password>
+  </connexionInformations>
+  <personnalInformations>
+    <name>Girard</name>
+    <firstname>Malo</firstname>
+    <birthday>$2y$10$CZle1wtwbrzoPKJoyMJ0jOqf5pH/x3hDm8.oowCmgHCBEVvjyQ/xi</birthday>
+    <residence>
+      <adress>204 Lot Bevinco</adress>
+      <cp>206202</cp>
+      <favouriteWebsite>https://wikipedia.org</favouriteWebsite>
+      <favouriteColor>#000000</favouriteColor>
+      <hobbie>Alpinisme</hobbie>
+    </residence>
+    <socialNetworks>
+      <facebook>Malo Girard</facebook>
+      <instagram>malo2b</instagram>
+      <twitter>malo2b</twitter>
+      <snapchat>malo.girard2b</snapchat>
+    </socialNetworks>
+  </personnalInformations>
+  <navigationInformations>
+    <position/>
+    <userAgent>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36</userAgent>
+    <timeStart>Fri Mar 18 2022 16:41:41 GMT+0100 (heure normale d’Europe centrale)</timeStart>
+    <Cookies>PHPSESSID=oj7m4slooo4g3uho9l0jqbuj5a</Cookies>
+  </navigationInformations>
+</datas>

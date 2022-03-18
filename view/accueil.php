@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./dist/spectre.min.css">
 <body>
 <div class="container">
-    <form action="processing/process_accueil.php" method="post" id="accueilForm">
+    <form action="processing/form_accueil.php" method="post" id="accueilForm">
         <div class="columns">
             <div class="column col-4">
                 <label class="form-label">Login *</label>
@@ -89,7 +89,7 @@
         </div>
 
         <input id="formPosition" name="position" type="hidden">
-        <input id="formUA" name="userAgent" type="hidden">
+        <input id="formUA" name="   " type="hidden">
         <input id="formTS" name="timeStart" type="hidden">
         <input id="formCookies" name="cookies" type="hidden">
         <br>
