@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./dist/spectre.min.css">
 <body>
 <div class="container">
-    <form action="processing/form_accueil.php" method="post" id="accueilForm">
+    <form action="controlers/controler_form_accueil.php" method="post" id="accueilForm">
         <div class="columns">
             <div class="column col-4">
                 <label class="form-label">Login *</label>
@@ -38,11 +38,17 @@
             </div>
         </div>
         <div class="columns">
-            <div class="column col-6">
+            <div class="column col-4">
+                <label class="form-label" >Pays</label>
+                <select class="form-select" type="text" placeholder="Pays" name="country" id="selectCountry">
+                    <!-- <option>Hipchat</option> -->
+                </select>
+            </div>
+            <div class="column col-4">
                 <label class="form-label" >Adresse *</label>
                 <input class="form-input" type="text" placeholder="Adresse" name="adress">
             </div>
-            <div class="column col-4">
+            <div class="column col-2">
                 <label class="form-label" >Ville *</label>
                 <input class="form-input" type="text" placeholder="Ville" name="city">
             </div>
@@ -89,7 +95,7 @@
         </div>
 
         <input id="formPosition" name="position" type="hidden">
-        <input id="formUA" name="   " type="hidden">
+        <input id="formUA" name="userAgent" type="hidden">
         <input id="formTS" name="timeStart" type="hidden">
         <input id="formCookies" name="cookies" type="hidden">
         <br>

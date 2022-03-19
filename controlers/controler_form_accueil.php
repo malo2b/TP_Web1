@@ -1,6 +1,6 @@
 <?php
 
-// Vérification des données
+include_once '../class/UserCls.php';
 
 function valid_donnees($data){
     $data = trim($data);
@@ -8,6 +8,9 @@ function valid_donnees($data){
     $data = htmlspecialchars($data);
     return $data;
 }
+
+// Vérification des données
+
 
 $login = valid_donnees($_POST['login']);
 $mail = valid_donnees($_POST['mail']);
@@ -17,6 +20,7 @@ $name = valid_donnees($_POST['name']);
 $firstname = valid_donnees($_POST['firstname']);
 $birthday = valid_donnees($_POST['birthday']);
 $birthday = password_hash($birthday, PASSWORD_DEFAULT);
+$country = valid_donnees($_POST['country']);
 $adress = valid_donnees($_POST['adress']);
 $city = valid_donnees($_POST['city']);
 $cp = valid_donnees($_POST['cp']);
@@ -54,13 +58,15 @@ if (empty($birthday) || preg_match("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", $birthday)) {
     //     $validate = false;
     // }
 }
+// if (empty($country)) {
+//     $validate = false;
+// }
 if (empty($adress)) {
     $validate = false;
 }
 if (empty($city) || preg_match("^[A-Za-z\ -]+$", $city)) {
     $validate = false;
 }
-var_dump($validate);
 if (empty($cp) and preg_match("^[0-9]{5}$", $cp)) {
     $validate = false;
 }
@@ -77,6 +83,34 @@ if (empty($hobbie)) {
 // Ecriture fichier XML
 
 if ($validate) {
+
+    echo "form valide";
+
+    $user = new UserCls();
+
+    $user->setLogin($login);
+    $user->setMail($mail);
+    $user->setPassword($password);
+    $user->setName($name);
+    $user->setFirstname($name);
+    $user->setBirthday($birthday);
+    $user->setCountry($country);
+    $user->setAdress($adress);
+    $user->setCity($city);
+    $user->setCp($cp);
+    $user->setFavWebsite($fav_website);
+    $user->setFavColor($fav_color);
+    $user->setPet($nb_pets);
+    $user->setHobbie($hobbie);
+    $user->setFacebook($facebook);
+    $user->setInstagram($instagram);
+    $user->setTwitter($twitter);
+    $user->setSnapchat($snapchat);
+
+    $user->save_DB();
+
+    ## Generer XML ##
+
     $dom = new DOMDocument('1.0', 'utf-8');
     $dom->preserveWhiteSpace = false;
     $dom->formatOutput = true;
@@ -103,6 +137,7 @@ if ($validate) {
     $xmlHobbie = $dom->createElement('hobbie', $hobbie);
 
     // create residence tags with values
+    $xmlCountry = $dom->createElement('country', $country);
     $xmlAdress = $dom->createElement('adress', $adress);
     $xmlCp = $dom->createElement('cp', $cp);
     $xmlCity = $dom->createElement('city', $city);
@@ -139,6 +174,7 @@ if ($validate) {
     $socialNetworks->appendChild($xmlTwitter);
     $socialNetworks->appendChild($xmlSnapchat);
 
+    $residence->appendChild($xmlCountry);
     $residence->appendChild($xmlAdress);
     $residence->appendChild($xmlCp);
     $residence->appendChild($xmlCp);
@@ -154,4 +190,6 @@ if ($validate) {
     $dom->appendChild($datas);
 
     $dom->save("../xml/output.xml");
+} else {
+    echo "form invalide";
 }
